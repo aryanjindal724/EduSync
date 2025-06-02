@@ -191,6 +191,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "EduSync API is running!");  // ✅ THIS LINE
-
 app.Run();
