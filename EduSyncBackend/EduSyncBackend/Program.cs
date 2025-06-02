@@ -169,8 +169,8 @@ app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseCors("AllowFrontend");
 
 // Swagger only in Development environment
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
   //  app.UseDeveloperExceptionPage();
 
@@ -178,7 +178,7 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "EduSync API V1");
     });
-}
+// }
 
 // Use HTTPS redirection, authentication, authorization, and routing
 app.UseHttpsRedirection();
@@ -190,5 +190,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/", () => "EduSync API is running!");  // ✅ THIS LINE
 
 app.Run();
