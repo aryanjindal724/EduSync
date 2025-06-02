@@ -17,19 +17,19 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: 'EduSyncBackend//*.csproj'
+    projects: 'EduSyncBackend/*.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'EduSyncBackend//*.csproj'
+    projects: 'EduSyncBackend/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     publishWebProjects: true
-    projects: 'EduSyncBackend//*.csproj'
+    projects: 'EduSyncBackend/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
@@ -38,4 +38,4 @@ steps:
     azureSubscription: 'MyAzureConnection'     # ✅ Replace this in DevOps
     appType: 'webApp'
     appName: 'edusync-backend'                               # ✅ Your Azure backend App Service name
-    package: '$(Build.ArtifactStagingDirectory)//*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
