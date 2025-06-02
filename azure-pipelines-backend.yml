@@ -35,7 +35,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<YOUR-SERVICE-CONNECTION-NAME>'     # ✅ Replace this in DevOps
+    azureSubscription: 'MyAzureConnection'     # ✅ Replace this in DevOps
     appType: 'webApp'
     appName: 'edusync-backend'                               # ✅ Your Azure backend App Service name
     package: '$(Build.ArtifactStagingDirectory)//*.zip'
