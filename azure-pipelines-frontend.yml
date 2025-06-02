@@ -18,7 +18,7 @@ steps:
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<YOUR-SERVICE-CONNECTION-NAME>'   # ✅ Replace this in DevOps
+    azureSubscription: 'MyAzureConnection'   # ✅ Replace this in DevOps
     appType: 'webAppLinux'
     appName: 'edusync-frontend'                            # ✅ Your Azure frontend App Service name
     package: 'edusyncfrontend/build'
